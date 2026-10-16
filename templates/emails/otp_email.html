@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ app_name }}: your verification code</title>
+</head>
+<body style="margin:0; padding:0; background-color:#f4f6f8; font-family:Arial, Helvetica, sans-serif;">
+
+  <!-- Hidden preview text shown in inbox lists -->
+  <div style="display:none; max-height:0; overflow:hidden; opacity:0;">
+    {{ app_name }}: your code for {{ purpose }} is {{ otp }}. It expires in {{ expiry }}.
+  </div>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f4f6f8; padding:32px 12px;">
+    <tr>
+      <td align="center">
+
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:480px; background-color:#ffffff; border-radius:10px; overflow:hidden;">
+
+          <!-- Header -->
+          <tr>
+            <td align="center" style="background-color:#1f4fd8; padding:24px;">
+              <span style="color:#ffffff; font-size:22px; font-weight:bold; letter-spacing:0.5px;">{{ app_name }}</span>
+              <div style="color:#dbe4ff; font-size:12px; margin-top:4px;">Book appointments with ease</div>
+            </td>
+          </tr>
+
+          <!-- Body -->
+          <tr>
+            <td style="padding:32px 28px 8px 28px; color:#1f2933; font-size:16px; line-height:1.5;">
+              <p style="margin:0 0 16px 0;">
+                Hi {% if user.first_name %}{{ user.first_name }}{% else %}there{% endif %},
+              </p>
+              <p style="margin:0 0 24px 0;">
+                Use the code below to complete <strong>{{ purpose }}</strong> on {{ app_name }}:
+              </p>
+            </td>
+          </tr>
+
+          <!-- OTP code -->
+          <tr>
+            <td align="center" style="padding:0 28px 24px 28px;">
+              <div style="display:inline-block; background-color:#eef2ff; border:1px dashed #1f4fd8; border-radius:8px; padding:16px 28px;">
+                <span style="font-size:32px; font-weight:bold; letter-spacing:8px; color:#1f4fd8; font-family:'Courier New', Courier, monospace;">{{ otp }}</span>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Details -->
+          <tr>
+            <td style="padding:0 28px 24px 28px; color:#52606d; font-size:14px; line-height:1.5;">
+              <p style="margin:0 0 12px 0;">
+                This code expires in <strong>{{ expiry }}</strong>.
+              </p>
+              <p style="margin:0;">
+                Never share this code with anyone. We will never ask you for it.
+              </p>
+            </td>
+          </tr>
+
+          <!-- Divider -->
+          <tr>
+            <td style="padding:0 28px;">
+              <hr style="border:none; border-top:1px solid #e4e7eb; margin:0;">
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="padding:20px 28px 28px 28px; color:#9aa5b1; font-size:12px; line-height:1.5;">
+              <p style="margin:0 0 8px 0;">
+                You received this email because this address was used on {{ app_name }},
+                an appointment booking service. If that wasn't you, you can safely ignore it.
+              </p>
+              <p style="margin:0;">&copy; {{ app_name }}. All rights reserved.</p>
+            </td>
+          </tr>
+
+        </table>
+
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>
