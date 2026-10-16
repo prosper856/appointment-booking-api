@@ -7,7 +7,6 @@ djangorestframework_simplejwt==5.5.1
 drf-spectacular==0.30.0
 django-cors-headers==4.9.0
 django-environ==0.14.0
-django-dotenv==0.21.0
 django-anymail[brevo]==9.4.0
 
 # Database
