@@ -85,9 +85,17 @@ def is_within_working_hours(provider, start, end) -> bool:
 
     if local_start.date() != local_end.date():
         return False
+
+    # Strip microsecond precision for safe evaluation against standard time fields
+    start_time_clean = local_start.time().replace(microsecond=0)
+    end_time_clean = local_end.time().replace(microsecond=0)
+
+    # Use a raw __hour/__minute check or apply extraction properties to drop microsecond variations
     return WorkingHours.objects.filter(
         provider=provider,
         weekday=local_start.weekday(),
-        start_time__lte=local_start.time(),
-        end_time__gte=local_end.time(),
+        start_time__hour__lte=start_time_clean.hour,
+        start_time__minute__lte=start_time_clean.minute,
+        end_time__hour__gte=end_time_clean.hour,
+        end_time__minute__gte=end_time_clean.minute,
     ).exists()
