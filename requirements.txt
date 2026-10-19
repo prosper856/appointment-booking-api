@@ -1,17 +1,11 @@
-# Core
 Django==6.1.2
 djangorestframework==3.18.3
 djangorestframework_simplejwt==5.5.1
-
-# API docs, CORS, config
 drf-spectacular==0.30.0
 django-cors-headers==4.9.0
-django-environ==0.14.0
-django-anymail[brevo]==9.4.0
-
-# Database
+python-decouple==3.8
+dj-database-url==3.1.2
 psycopg[binary]
-
-# Deployment (Render)
 whitenoise==6.12.0
 gunicorn==26.2.0
+django-anymail[brevo]
